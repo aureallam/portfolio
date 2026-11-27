@@ -17,7 +17,7 @@
     />
   </head>
 
-  <body>
+  <body class="home-page">
     <!-- NAVIGATION -->
 
     <header class="site-header container">
@@ -32,28 +32,38 @@
       </nav>
     </header>
 
-    <main class="container">
+    <main class="container home-layout">
       <!-- INTRODUCTION -->
 
-      <section class="hero">
+    <section class="hero">
+    <div class="hero-portrait" aria-hidden="true">
+        <span>PORTRAIT / 2026</span>
+    </div>
+
+    <div class="hero-copy">
         <p class="eyebrow">PERSONAL PORTFOLIO / 2026</p>
 
         <h1>
-          Engineering<br />
-          in motion<span>.</span>
+        Engineering<br />
+        in motion<span>.</span>
         </h1>
 
+        <p class="hero-name">Aurélien Allam.</p>
+
         <p class="hero-description">
-          I'm Aurélien Allam, an engineering graduate interested in robotics,
-          mechatronics and control systems.
+        Engineering graduate interested in robotics,
+        mechatronics and control systems.
         </p>
+    </div>
 
-        <div class="hero-bottom">
-          <a class="text-link" href="#work"> Explore my work ↘ </a>
+    <div class="hero-bottom">
+        <a class="text-link" href="#work">
+        Explore my work ↘
+        </a>
 
-          <p class="annotation">ROBOTICS / CONTROL / R&D</p>
-        </div>
-      </section>
+        <p class="annotation">ROBOTICS / CONTROL / R&D</p>
+    </div>
+    </section>
 
       <!-- PROJECTS -->
 
@@ -62,63 +72,64 @@
           <span>01 / SELECTED WORK</span>
           <span>2025 — CHILE</span>
         </div>
+        <div class="projects-gallery">
+            <canvas id="projects-animation" aria-hidden="true"></canvas>
 
-        <article class="project">
-          <a href="projects/khepera.html" class="project-image">
+<article class="project">
+  <div class="project-visual">
+    <a href="projects/khepera.html" class="project-image">
+      <img
+        src="assets/images/khepera/Robots en formation triangulaire sur grille sombre.png"
+        alt="Khepera IV multi-robot formation"
+      />
 
-        <img
-            src="assets/images/khepera/Robots en formation triangulaire sur grille sombre.png"
-            alt="Khepera IV multi-robot formation"
-        />
+      <div class="project-overlay"></div>
 
-        <div class="project-overlay"></div>
+      <div class="project-preview">
+        <p class="preview-label">
+          RESEARCH INTERNSHIP / 2025 / CHILE
+        </p>
 
-        <div class="project-preview">
+        <h3>Collective<br />motion.</h3>
 
-            <p class="preview-label">
-            RESEARCH INTERNSHIP / 2025 / CHILE
-            </p>
+        <p class="preview-description">
+          Cooperative formation control of mobile robots.
+          From simulation to real-world experimentation.
+        </p>
 
-            <h3>Collective<br />motion.</h3>
+        <span class="preview-link">
+          EXPLORE PROJECT ↗
+        </span>
+      </div>
+    </a>
 
-            <p class="preview-description">
-            Cooperative formation control of mobile robots.
-            From simulation to real-world experimentation.
-            </p>
+    <div class="image-caption">
+      <span>Formation control / AI-generated illustration</span>
+      <span>VALPARAÍSO, CL</span>
+    </div>
+  </div>
 
-            <span class="preview-link">
-            EXPLORE PROJECT ↗
-            </span>
+  <a href="projects/khepera.html" class="project-info">
+    <span class="project-number">01.</span>
 
-        </div>
+    <div class="project-description">
+      <h2>Khepera IV</h2>
 
-        </a>
+      <p>Mobile robotics & experimental control</p>
 
-          <div class="image-caption">
-            <span>Experimental mobile robotics platform</span>
-            <span>VALPARAÍSO, CL</span>
-          </div>
+      <p class="project-location">
+        Pontificia Universidad Católica de Valparaíso, Chile
+      </p>
 
-          <a href="projects/khepera.html" class="project-info">
-            <span class="project-number">01.</span>
+      <p class="project-tags">
+        C / COPPELIASIM / COMPUTER VISION / CONTROL
+      </p>
+    </div>
 
-            <div class="project-description">
-              <h2>Khepera IV</h2>
-
-              <p>Mobile robotics & experimental control</p>
-
-              <p class="project-location">
-                Pontificia Universidad Católica de Valparaíso, Chile
-              </p>
-
-              <p class="project-tags">
-                C / COPPELIASIM / COMPUTER VISION / CONTROL
-              </p>
-            </div>
-
-            <span class="project-arrow">↗</span>
-          </a>
-        </article>
+    <span class="project-arrow">↗</span>
+  </a>
+</article>
+</div>
       </section>
 
       <!-- ABOUT -->

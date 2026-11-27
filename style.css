@@ -445,3 +445,290 @@ nav a:hover {
     transition: none !important;
   }
 }
+
+
+/* ========================================
+   09 — IMMERSIVE EDITORIAL LAYOUT
+   ======================================== */
+
+/* DEFAULT — ORIGINAL VERTICAL LAYOUT */
+
+.hero-portrait,
+.hero-name {
+  display: none;
+}
+
+/* WIDE SCREEN */
+
+@media (min-width: 1100px) {
+
+  .home-page .container {
+    width: 94%;
+    max-width: none;
+  }
+
+  /* IMMERSIVE HERO */
+
+  .home-layout .hero {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: minmax(min-content, 1fr) auto;
+
+    min-height: calc(100vh - 90px);
+    padding: 24px 0 32px;
+    row-gap: 24px;
+
+    isolation: isolate;
+  }
+
+  /* PORTRAIT */
+
+  .hero-portrait {
+    display: block;
+    position: relative;
+
+    grid-column: 5 / -1;
+    grid-row: 1;
+
+    min-height: 480px;
+    background: #c5c3be;
+
+    z-index: 0;
+  }
+
+  .hero-portrait span {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #454545;
+  }
+
+  /* OVERLAPPING TYPOGRAPHY */
+
+  .hero-copy {
+    grid-column: 1 / 11;
+    grid-row: 1;
+
+    align-self: center;
+    padding: 35px 0;
+
+    z-index: 1;
+  }
+
+  .home-layout .hero h1 {
+    font-size: 12vw;
+    color: var(--accent);
+    margin: 35px 0;
+  }
+
+  .home-layout .eyebrow {
+    font-size: clamp(12px, 0.9vw, 18px);
+  }
+
+  /* PERSONAL INTRODUCTION */
+
+  .hero-name {
+    display: block;
+
+    font-family: var(--font-heading);
+    font-size: clamp(24px, 2.4vw, 48px);
+    font-weight: 600;
+
+    margin: 0 0 12px;
+  }
+
+  .home-layout .hero-description {
+    max-width: 30vw;
+
+    font-size: clamp(18px, 1.55vw, 32px);
+    line-height: 1.55;
+    color: var(--foreground);
+
+    margin: 0;
+  }
+
+  /* HERO FOOTNOTE */
+
+  .home-layout .hero-bottom {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    margin: 0;
+    align-items: center;
+  }
+
+  .home-layout .text-link {
+    font-size: clamp(16px, 1.1vw, 24px);
+  }
+
+  .home-layout .annotation {
+    font-size: clamp(12px, 0.85vw, 18px);
+  }
+
+  /* SELECTED WORK — CONTINUOUS GALLERY */
+
+.home-layout .project {
+  display: grid;
+  grid-template-columns: minmax(0, 62fr) minmax(0, 38fr);
+
+  gap: 0;
+  align-items: stretch;
+
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.home-layout .project:last-child {
+  margin-bottom: 0;
+}
+
+.home-layout .project-visual {
+  min-width: 0;
+  position: relative;
+}
+
+.home-layout .project-info {
+  position: relative;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 20px;
+  padding: 40px 30px 40px 3vw;
+
+  border: none;
+  background: transparent;
+}
+
+.home-layout .project-arrow {
+  margin-left: 0;
+}
+
+.home-layout .project-description h2 {
+  font-size: clamp(42px, 4vw, 85px);
+}
+
+.home-layout .project-description p {
+  font-size: clamp(18px, 1.4vw, 30px);
+}
+
+.home-layout .project-description .project-location {
+  font-size: clamp(16px, 1.1vw, 24px);
+}
+
+.home-layout .project-description .project-tags {
+  font-size: clamp(12px, 0.9vw, 20px);
+}
+
+  .home-layout .about-section p {
+    max-width: 850px;
+    font-size: clamp(18px, 1.4vw, 30px);
+  }
+}
+
+/* ========================================
+   10 — GENERATIVE GRAPHICS
+   ======================================== */
+
+.projects-gallery {
+  position: relative;
+  isolation: isolate;
+}
+
+#projects-animation {
+  display: none;
+  pointer-events: none;
+}
+
+/* CONTINUOUS ANIMATION — WIDE SCREEN */
+
+@media (min-width: 1100px) {
+
+  #projects-animation {
+    display: block;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 38%;
+    height: 100%;
+
+    z-index: 0;
+  }
+
+  .projects-gallery .project {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+
+/* ========================================
+   11 — COMPACT HERO PORTRAIT
+   ======================================== */
+
+@media (min-width: 601px) and (max-width: 1099px) {
+
+  .home-layout .hero {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .hero-portrait {
+    display: block;
+
+    position: absolute;
+    top: 55px;
+    right: 0;
+
+    width: 38%;
+    height: 65%;
+
+    background: #c5c3be;
+
+    z-index: -1;
+  }
+
+  .hero-portrait span {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--muted);
+  }
+
+  .hero-description {
+    max-width: 65%;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .hero-portrait {
+    display: block;
+
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    background: #c5c3be;
+    margin-bottom: 30px;
+  }
+
+  .hero-portrait span {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+
+    font-family: var(--font-mono);
+    font-size: 9px;
+  }
+}
