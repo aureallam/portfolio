@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -50,7 +49,7 @@
 
       <figure class="editorial-figure">
         <img
-          src="../assets/images/khepera/khepera-lab.jpg"
+          src="../assets/images/khepera/Formation triangulaire de robots en laboratoire.png"
           alt="Experimental mobile robotics platform at PUCV"
         />
 
@@ -84,46 +83,271 @@
         </div>
       </section>
 
-      <!-- OVERVIEW -->
+      <!-- PROJECT NAVIGATION -->
 
-      <section class="editorial-section" id="overview">
-        <div class="editorial-index">
-          <span>01.</span>
-          <p>OVERVIEW</p>
+    <nav class="project-navigation" aria-label="Project sections">
+    <a href="#overview">01 Overview</a>
+    <a href="#background">02 Background</a>
+    <a href="#platform">03 Platform</a>
+    <a href="#contributions">04 Contributions</a>
+    <a href="#control">05 Control</a>
+    <a href="#results">06 Results</a>
+    <a href="#conclusion">07 Conclusion</a>
+    </nav>
+      
+<!-- 01 — SCIENTIFIC CONTEXT -->
+
+<section class="editorial-section scientific-context" id="overview">
+    <canvas id="project-margin-animation" aria-hidden="true"></canvas>
+  <div class="editorial-index">
+    <span>01.</span>
+    <p>OVERVIEW</p>
+  </div>
+
+  <div class="editorial-content">
+    <p class="scientific-label">1.1 / SCIENTIFIC CONTEXT</p>
+
+    <h2>From simulation to reality.</h2>
+
+    <!-- INDIVIDUAL AND COLLECTIVE MOTION -->
+
+    <div class="scientific-split">
+      <div class="scientific-text">
+        <h3>From individual autonomy to collective motion.</h3>
+
+        <p>
+          Autonomous mobile robotics traditionally focuses on the
+          ability of a single robot to perceive its environment,
+          make decisions and navigate towards a given objective.
+          Multi-robot systems extend this problem to a group of
+          autonomous agents whose individual actions must contribute
+          to a common task.
+        </p>
+
+        <p>
+          Rather than relying on a single robotic platform,
+          distributing a mission among several robots can offer
+          advantages in terms of spatial coverage, operational
+          flexibility, scalability and fault tolerance. These
+          properties make multi-robot systems particularly relevant
+          to applications such as environmental exploration,
+          search and rescue, industrial logistics and autonomous
+          surveillance.
+        </p>
+
+        <p>
+          However, increasing the number of robots also introduces
+          new challenges. Each agent operates with its own physical
+          constraints, available measurements and control inputs,
+          while its behaviour influences the evolution of the
+          entire system. The central problem is therefore no longer
+          limited to individual navigation, but extends to
+          coordination, information exchange and collective
+          decision-making.
+        </p>
+      </div>
+
+      <figure class="scientific-figure motion-figure">
+        <div class="simulation-panel">
+          <div class="simulation-header">
+            <span>MOTION STUDY / 001</span>
+            <span>CONCEPTUAL MODEL</span>
+          </div>
+
+          <canvas id="collective-motion"></canvas>
+
+          <div class="simulation-controls">
+            <button id="motion-toggle" type="button">
+              Pause
+            </button>
+
+            <label>
+              Speed
+              <input
+                id="motion-speed"
+                type="range"
+                min="0.5"
+                max="2"
+                step="0.1"
+                value="1"
+              />
+            </label>
+          </div>
         </div>
 
-        <div class="editorial-content">
-          <h2>From simulation to reality.</h2>
+        <figcaption>
+          FIG. 02 / INDEPENDENT VS COORDINATED MOTION
+        </figcaption>
+      </figure>
+    </div>
 
-          <p class="lead-paragraph">
-            How can multiple mobile robots maintain a formation
-            while navigating through a shared environment?
-          </p>
+    <!-- FORMATION CONTROL -->
 
-          <p>
-            Multi-agent robotics introduces a coordination problem:
-            each robot must navigate individually while contributing
-            to the collective motion of the group.
-          </p>
+    <div class="scientific-subsection">
+      <h3>Formation control in multi-robot systems.</h3>
 
-          <p>
-            Conducted at the Artificial Intelligence Laboratory of
-            the Pontificia Universidad Católica de Valparaíso,
-            this research internship focused on transferring
-            existing formation control strategies from simulation
-            to a physical platform composed of three Khepera IV
-            mobile robots.
-          </p>
+      <div class="scientific-columns">
+        <p>
+          Formation control is a particular branch of multi-agent
+          control in which a group of robots is required to establish
+          and maintain a predefined spatial configuration while
+          moving through an environment.
+        </p>
 
-          <p>
-            The work involved restoring the experimental platform,
-            adapting its communication architecture for multi-robot
-            operation, implementing cooperative and non-cooperative
-            controllers in embedded C, and integrating reactive
-            obstacle avoidance.
-          </p>
+        <p>
+          Unlike independent trajectory tracking, where each robot
+          follows its own reference, formation control introduces
+          geometric relationships between agents. The motion of one
+          robot can consequently affect the control objectives of
+          the others.
+        </p>
+
+        <p>
+          Several approaches can be used to address this problem,
+          including behaviour-based control, virtual structures
+          and leader-follower architectures. In the latter, one
+          robot acts as a reference for the remaining agents,
+          which adjust their motion to maintain desired relative
+          positions.
+        </p>
+
+        <p>
+          This architecture provides a framework for investigating
+          how individual control laws, relative positioning and
+          information exchange can generate coordinated group motion.
+        </p>
+      </div>
+
+      <figure class="scientific-figure">
+        <div class="simulation-panel">
+          <div class="simulation-header">
+            <span>FORMATION STUDY / 002</span>
+            <span>CONTROL ARCHITECTURES</span>
+          </div>
+
+          <div class="formation-tabs">
+            <button type="button" data-formation="behaviour">
+              Behaviour-based
+            </button>
+
+            <button type="button" data-formation="virtual">
+              Virtual structure
+            </button>
+
+            <button
+              type="button"
+              data-formation="leader"
+              class="active"
+            >
+              Leader-follower
+            </button>
+          </div>
+
+          <canvas id="formation-architectures"></canvas>
+
+          <div class="formation-explanation">
+            <h4 id="formation-title">Leader-follower</h4>
+
+            <p id="formation-description">
+              The leader provides a moving reference. Each follower
+              adjusts its motion to maintain a desired relative
+              position.
+            </p>
+
+            <span id="formation-note">
+              APPROACH INVESTIGATED IN THIS PROJECT
+            </span>
+          </div>
         </div>
-      </section>
+
+        <figcaption>
+          FIG. 03 / FORMATION CONTROL ARCHITECTURES
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- EXPERIMENTAL VALIDATION -->
+
+    <div class="scientific-subsection">
+      <h3>Towards experimental validation.</h3>
+
+      <div class="scientific-columns">
+        <p>
+          Although formation control strategies can be developed
+          and evaluated in simulation, their implementation on
+          physical robots introduces additional engineering
+          challenges. Measurement uncertainties, communication
+          delays, actuator limitations and environmental disturbances
+          can affect the behaviour of the collective system.
+        </p>
+
+        <p>
+          Experimental validation is therefore essential to assess
+          how theoretical control strategies perform under real
+          operating conditions.
+        </p>
+      </div>
+
+      <figure class="scientific-figure">
+        <div class="simulation-panel">
+          <div class="simulation-header">
+            <span>MODEL VS REALITY / 003</span>
+            <span>ILLUSTRATIVE DEVIATIONS</span>
+          </div>
+
+          <canvas id="model-reality"></canvas>
+        </div>
+
+        <figcaption>
+          FIG. 04 / CONCEPTUAL ILLUSTRATION — NOT MEASURED DATA
+        </figcaption>
+      </figure>
+
+      <div class="experimental-comparison">
+        <figure class="scientific-figure">
+          <img
+            src="../assets/images/khepera/simu_adapt.PNG"
+            alt="Multi-robot simulation environment in CoppeliaSim"
+            loading="lazy"
+          />
+
+          <figcaption>
+            FIG. 05A / SIMULATION — COPPELIASIM
+          </figcaption>
+        </figure>
+
+        <figure class="scientific-figure">
+          <img
+            src="../assets/images/khepera/Pla.jpg"
+            alt="Physical Khepera IV experimental platform at PUCV"
+            loading="lazy"
+          />
+
+          <figcaption>
+            FIG. 05B / PHYSICAL PLATFORM — PUCV
+          </figcaption>
+        </figure>
+      </div>
+
+      <p>
+        Within this context, the research internship conducted at
+        the Artificial Intelligence Laboratory of the Pontificia
+        Universidad Católica de Valparaíso focused on the
+        implementation and experimental investigation of
+        leader-follower formation control strategies using a
+        group of three Khepera IV mobile robots.
+      </p>
+
+      <p class="scientific-conclusion">
+        The project lies at the intersection of automatic control,
+        embedded software, distributed robotic systems and
+        experimental robotics, with the objective of connecting
+        theoretical coordination strategies to their physical
+        implementation.
+      </p>
+    </div>
+  </div>
+</section>
 
       <!-- PROJECT IN NUMBERS -->
 
@@ -143,11 +367,90 @@
           <span>Shared formation</span>
         </div>
       </section>
+      <!-- RESEARCH BACKGROUND -->
+
+<section class="editorial-section" id="background">
+  <div class="editorial-index">
+    <span>02.</span>
+    <p>RESEARCH BACKGROUND</p>
+  </div>
+
+  <div class="editorial-content">
+    <h2>Building on previous research.</h2>
+  </div>
+</section>
+
+<!-- EXPERIMENTAL PLATFORM -->
+
+<section class="editorial-section" id="platform">
+  <div class="editorial-index">
+    <span>03.</span>
+    <p>EXPERIMENTAL PLATFORM</p>
+  </div>
+
+  <div class="editorial-content">
+    <h2>Inside the robotic system.</h2>
+  </div>
+</section>
+
+<!-- PERSONAL CONTRIBUTIONS -->
+
+<section class="editorial-section" id="contributions">
+  <div class="editorial-index">
+    <span>04.</span>
+    <p>PERSONAL CONTRIBUTIONS</p>
+  </div>
+
+  <div class="editorial-content">
+    <h2>Making the system work.</h2>
+  </div>
+</section>
+
+<!-- CONTROL STRATEGIES -->
+
+<section class="editorial-section" id="control">
+  <div class="editorial-index">
+    <span>05.</span>
+    <p>CONTROL STRATEGIES</p>
+  </div>
+
+  <div class="editorial-content">
+    <h2>Engineering collective motion.</h2>
+  </div>
+</section>
+
+<!-- EXPERIMENTAL RESULTS -->
+
+<section class="editorial-section" id="results">
+  <div class="editorial-index">
+    <span>06.</span>
+    <p>EXPERIMENTAL RESULTS</p>
+  </div>
+
+  <div class="editorial-content">
+    <h2>Beyond the simulation.</h2>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+
+<section class="editorial-section" id="conclusion">
+  <div class="editorial-index">
+    <span>07.</span>
+    <p>CONCLUSION</p>
+  </div>
+
+  <div class="editorial-content">
+    <h2>Lessons from the laboratory.</h2>
+  </div>
+</section>
     </main>
 
     <footer class="site-footer container">
       <span>© 2026 AURÉLIEN ALLAM</span>
       <span>ENGINEERING FIELD NOTES / 001</span>
     </footer>
+
+    <script src="khepera.js"></script>
   </body>
 </html>
